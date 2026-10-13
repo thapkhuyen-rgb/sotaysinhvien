@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Website thông tin hữu ích cho sinh viên mới: nơi học, gia sư, chỗ ở, ăn uống và môi trường đại học." />
+  <title>FreshStart | Hướng dẫn sinh viên mới</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#top" class="brand" aria-label="FreshStart home">
+        Fresh<span>Start</span>
+      </a>
+
+      <button class="nav-toggle" aria-label="Mở menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="#home">Trang chủ</a>
+        <a href="#services" data-notebook-page="1">Dịch vụ</a>
+        <a href="#services" data-notebook-page="2">Địa điểm</a>
+        <a href="#services" data-notebook-page="4">Mẹo</a>
+        <a href="#contact">Liên hệ</a>
+        <a href="#sodo">Sơ đồ trường</a>
+      </nav>
+
+      <a class="btn btn-primary btn-header" href="#services">Khám phá</a>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <h1>FreshStart</h1>
+          <p class="lead">
+            Một góc nhỏ đồng hành cùng bạn trên hành trình học tập, vui chơi và khám phá đại học ♡
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#services">Khám phá ngay <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+
+        <div class="hero-doodles" aria-hidden="true">
+          <span class="hero-doodle doodle-mouse">🐭</span>
+          <span class="hero-doodle doodle-cow">🐮</span>
+          <span class="hero-doodle doodle-balloon">🎈</span>
+          <span class="hero-doodle doodle-octopus">🐙</span>
+          <span class="hero-doodle doodle-bird">🐦</span>
+          <span class="hero-doodle doodle-wifi">📶</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="notebook-section" id="services">
+      <div class="container notebook-layout">
+        <aside class="notebook-sidebar">
+          <div class="notebook-brand"><span aria-hidden="true">📔</span> Sổ tay sinh viên</div>
+          <p class="notebook-sidebar-label">MỤC LỤC</p>
+          <nav class="notebook-nav" aria-label="Các chủ đề trong sổ tay">
+            <button class="notebook-tab active" type="button" data-notebook-page="0" aria-controls="notebook-page-0" aria-current="page"><span>✦</span> Bắt đầu</button>
+            <button class="notebook-tab" type="button" data-notebook-page="1" aria-controls="notebook-page-1"><span>📚</span> Học tập</button>
+            <button class="notebook-tab" type="button" data-notebook-page="2" aria-controls="notebook-page-2"><span>🏠</span> Chỗ ở</button>
+            <button class="notebook-tab" type="button" data-notebook-page="3" aria-controls="notebook-page-3"><span>🍜</span> Ăn uống</button>
+            <button class="notebook-tab" type="button" data-notebook-page="4" aria-controls="notebook-page-4"><span>🌱</span> Mẹo sinh viên</button>
+          </nav>
+          <div class="notebook-note">
+            <strong>Ghi chú nhỏ</strong>
+            <p>Không cần biết hết mọi thứ ngay hôm nay. Hãy bắt đầu từ điều bạn cần nhất.</p>
+          </div>
+        </aside>
+
+        <div class="notebook-book">
+          <div class="notebook-paper" aria-live="polite">
+            <div class="notebook-page-count" aria-label="Số trang">1 / 5</div>
+            <article class="notebook-page" id="notebook-page-0" data-notebook-page="0">
+              <p class="notebook-kicker">FRESHSTART · SỔ TAY TÂN SINH VIÊN</p>
+              <h2>01. Bắt đầu từ đây <span aria-hidden="true">🌱</span></h2>
+              <p class="notebook-intro">Một vài điều thiết thực để những ngày đầu đại học nhẹ nhàng và dễ làm quen hơn.</p>
+              <div class="notebook-rows">
+                <div class="notebook-row"><span class="notebook-icon">📚</span><div><h3>Tìm một góc học hợp với bạn</h3><p>Thư viện, phòng tự học hoặc quán cà phê yên tĩnh đều có thể trở thành nơi quen thuộc.</p></div><span class="notebook-meta">HỌC TẬP</span></div>
+                <div class="notebook-row"><span class="notebook-icon">🏡</span><div><h3>Ưu tiên nơi ở thuận tiện</h3><p>Cân nhắc khoảng cách đến trường, an ninh và những tiện ích bạn dùng mỗi ngày.</p></div><span class="notebook-meta">CHỖ Ở</span></div>
+                <div class="notebook-row"><span class="notebook-icon">🍜</span><div><h3>Khám phá quanh khuôn viên</h3><p>Tìm hiểu căn tin, cửa hàng thiết yếu và những lựa chọn ăn uống phù hợp ngân sách.</p></div><span class="notebook-meta">SINH HOẠT</span></div>
+              </div>
+              <div class="notebook-callout"><strong>Nhắc nhẹ</strong><p>Mỗi người có nhịp làm quen riêng. Cứ đi từng bước nhỏ nhé.</p></div>
+            </article>
+
+            <article class="notebook-page" id="notebook-page-1" data-notebook-page="1" hidden>
+              <p class="notebook-kicker">01 · KHÔNG GIAN VÀ HỖ TRỢ HỌC TẬP</p>
+              <h2>02. Chỗ học tập <span aria-hidden="true">📚</span></h2>
+              <p class="notebook-intro">Chọn nơi phù hợp với cách bạn muốn học: yên tĩnh một mình hay trao đổi cùng bạn bè.</p>
+              <div class="notebook-rows">
+                <div class="notebook-row"><span class="notebook-icon">🏛️</span><div><h3>Thư viện trường</h3><p>Không gian đọc sách, mượn tài liệu và học tập yên tĩnh.</p></div><span class="notebook-meta">7:00–21:00</span></div>
+                <div class="notebook-row"><span class="notebook-icon">🪑</span><div><h3>Phòng tự học</h3><p>Chỗ ngồi rộng, gần giảng đường và phù hợp cho nhóm nhỏ.</p></div><span class="notebook-meta">HỌC NHÓM</span></div>
+                <div class="notebook-row"><span class="notebook-icon">🎓</span><div><h3>Gia sư và lớp bổ trợ</h3><p>Lớp ôn tập, luyện thi và hỗ trợ theo từng môn học.</p></div><span class="notebook-meta">THEO MÔN</span></div>
+                <div class="notebook-row"><span class="notebook-icon">☕</span><div><h3>Cà phê học bài</h3><p>Ưu tiên quán có Wi-Fi ổn định, chỗ ngồi thoải mái và không quá ồn.</p></div><span class="notebook-meta">TỰ HỌC</span></div>
+              </div>
+              <div class="notebook-callout"><strong>Mẹo nhỏ</strong><p>Thử vài không gian khác nhau để tìm được nơi giúp bạn tập trung nhất.</p></div>
+            </article>
+
+            <article class="notebook-page" id="notebook-page-2" data-notebook-page="2" hidden>
+              <p class="notebook-kicker">02 · KÝ TÚC XÁ VÀ PHÒNG TRỌ</p>
+              <h2>03. Chỗ ở <span aria-hidden="true">🏠</span></h2>
+              <p class="notebook-intro">Một chỗ ở phù hợp giúp bạn tiết kiệm thời gian, chi phí và yên tâm sinh hoạt.</p>
+              <div class="notebook-rows">
+                <div class="notebook-row"><span class="notebook-icon">🏢</span><div><h3>Ký túc xá gần trường</h3><p>Diện tích vừa phải, tiện ích cơ bản và thuận tiện đi lại.</p></div><span class="notebook-meta">GẦN TRƯỜNG</span></div>
+                <div class="notebook-row"><span class="notebook-icon">🔑</span><div><h3>Phòng trọ sinh viên</h3><p>Tham khảo khu vực, chi phí điện nước, an ninh và nội quy trước khi chọn.</p></div><span class="notebook-meta">TÌM HIỂU KỸ</span></div>
+                <div class="notebook-row"><span class="notebook-icon">💰</span><div><h3>Khoản phí tham khảo</h3><p>Một số khu ký túc xá có mức phí khoảng 1,5–2,5 triệu đồng.</p></div><span class="notebook-meta">/ THÁNG</span></div>
+              </div>
+              <div class="notebook-callout"><strong>Trước khi quyết định</strong><p>Đọc kỹ hợp đồng và hỏi rõ các khoản phí phát sinh.</p></div>
+            </article>
+
+            <article class="notebook-page" id="notebook-page-3" data-notebook-page="3" hidden>
+              <p class="notebook-kicker">03 · CĂN TIN VÀ ĂN UỐNG</p>
+              <h2>04. Ăn uống <span aria-hidden="true">🍜</span></h2>
+              <p class="notebook-intro">Lưu lại vài lựa chọn ngon, tiện và hợp túi tiền quanh trường.</p>
+              <div class="notebook-rows">
+                <div class="notebook-row"><span class="notebook-icon">🍱</span><div><h3>Căn tin sinh viên</h3><p>Các món cơm, bún, phở nhanh gọn và đa dạng trong ngày.</p></div><span class="notebook-meta">50–80K / BỮA</span></div>
+                <div class="notebook-row"><span class="notebook-icon">🥗</span><div><h3>Quán ăn quanh trường</h3><p>Tham khảo đánh giá, giá cả và vệ sinh trước khi chọn quán quen.</p></div><span class="notebook-meta">RẺ & TIỆN</span></div>
+                <div class="notebook-row"><span class="notebook-icon">🥤</span><div><h3>Cửa hàng thiết yếu</h3><p>Tìm trước cửa hàng tiện lợi và nơi mua nước, đồ dùng gần chỗ ở.</p></div><span class="notebook-meta">GẦN BẠN</span></div>
+              </div>
+              <div class="notebook-callout"><strong>Gợi ý</strong><p>Lưu lại địa chỉ và giờ mở cửa của những nơi bạn thường ghé.</p></div>
+            </article>
+
+            <article class="notebook-page" id="notebook-page-4" data-notebook-page="4" hidden>
+              <p class="notebook-kicker">04 · LÀM QUEN VỚI NHỊP SỐNG MỚI</p>
+              <h2>05. Mẹo sinh viên <span aria-hidden="true">✨</span></h2>
+              <p class="notebook-intro">Ba điều nhỏ giúp bạn chăm sóc thời gian, nơi ở và chính mình.</p>
+              <div class="notebook-rows">
+                <div class="notebook-row"><span class="notebook-icon">🕒</span><div><h3>Quản lý thời gian</h3><p>Chia thời gian hợp lý cho học tập, nghỉ ngơi và sinh hoạt cá nhân.</p></div><span class="notebook-meta">TỪNG NGÀY</span></div>
+                <div class="notebook-row"><span class="notebook-icon">🛡️</span><div><h3>Chọn nơi ở an toàn</h3><p>Ưu tiên khu gần trường, an ninh tốt và đủ tiện nghi cần thiết.</p></div><span class="notebook-meta">AN TÂM</span></div>
+                <div class="notebook-row"><span class="notebook-icon">🌿</span><div><h3>Thích nghi dần dần</h3><p>Đừng vội lo lắng. Mỗi ngày có thể giúp bạn tìm ra thói quen phù hợp.</p></div><span class="notebook-meta">THEO NHỊP RIÊNG</span></div>
+              </div>
+              <div class="notebook-callout"><strong>Bạn đang làm tốt</strong><p>Không cần phải có mọi câu trả lời ngay từ ngày đầu tiên.</p></div>
+            </article>
+          </div>
+          <div class="notebook-controls" aria-label="Điều hướng trang sổ tay">
+            <button type="button" class="page-button" data-page-step="-1" aria-label="Trang trước">← Trước</button>
+            <button type="button" class="page-button page-index" data-page-home>Mục lục</button>
+            <button type="button" class="page-button" data-page-step="1" aria-label="Trang sau">Trang sau →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+<!-- Dán vào bên trong thẻ <body>, trước thẻ <footer> -->
+<section id="sodo" class="campus-container">
+  <div class="section-header">
+    <h2>🗺️ Sơ Đồ Trường & Tra Cứu Phòng Học</h2>
+    <p>Không sợ đi lạc, tìm phòng thi và giảng đường nhanh chóng trong vài giây.</p>
+  </div>
+
+  <div class="room-lookup-box">
+    <h3>🔍 Tra nhanh vị trí phòng học</h3>
+    <div class="input-group">
+      <input type="text" id="roomInput" placeholder="Nhập mã phòng học (ví dụ: 303/MT, HTR/DB,...)">
+      <button id="lookupBtn">Tra cứu</button>
+    </div>
+    <div id="lookupResult" class="lookup-result">
+      Nhập mã phòng trên thời khóa biểu để xem hướng dẫn đường đi.
+    </div>
+  </div>
+
+  <div class="quick-nav-zones">
+    <span class="nav-label">Khu vực:</span>
+    <button class="zone-btn active" data-zone="all">Khu 2</button>
+    <!--<button class="zone-btn" data-zone="khu-a">Khu 1</button>
+    <button class="zone-btn" data-zone="khu-b">Khu 2</button>
+    <button class="zone-btn" data-zone="khu-c">Khu 3</button>
+    <button class="zone-btn" data-zone="tien-ich">Thư viện</button> -->
+  </div>
+
+  <div class="map-card">
+    <div class="map-image-wrapper" id="mapWrapper">
+      <img id="campusMapImg" src="images + videos/473809083_122184466640123729_354960090892013734_n.jpg" alt="Sơ đồ trường">
+      <div id="mapMarker" class="map-marker hidden">
+      <div class="pulse-ring"></div>
+      <div class="marker-label" id="markerLabel">Tên Khoa</div>
+      </div>
+      <button class="zoom-hint-btn" id="openModalBtn">🔍 Phóng to</button>
+    </div>
+    <div class="map-caption" id="zoneCaption">
+      📍 <strong>Bản đồ tổng thể:</strong> Xem các dãy giảng đường và cổng ra vào.
+    </div>
+  </div>
+
+  <div id="imageModal" class="modal">
+    <span class="close-modal" id="closeModalBtn">&times;</span>
+    <img class="modal-content" id="modalImg" alt="Bản đồ">
+  </div>
+  <!-- Toàn bộ phần input tra cứu, các nút bấm, map-card và popup modal -->
+</section>
+  <footer class="site-footer" id="contact">
+    <div class="container footer-wrap">
+      <div class="footer-brand-box">
+        <a href="#top" class="brand footer-brand">Fresh<span>Start</span></a>
+        <p style="font-size:14px;">Hướng dẫn và thông tin thiết thực để sinh viên mới dễ dàng hòa nhập.</p>
+      </div>
+
+      
+      <div class="footer-links">
+        <h4>Liên kết</h4>
+        <a href="#services">Dịch vụ</a>
+        <a href="#services" data-notebook-page="2">Địa điểm</a>
+        <a href="#services" data-notebook-page="4">Mẹo hữu ích</a>
+      </div>
+
+      
+      <div class="footer-links">
+        <h4>Liên hệ</h4>
+        <a href="mailto:hello@freshstart.vn">hello@freshstart.vn</a>
+        <span>Hỗ trợ sinh viên mới</span>
+        <span>Thường xuyên cập nhật</span>
+      </div>
+    </div>
+      
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> FreshStart</span>
+      <span>Học hành dễ hơn, sống tốt hơn.</span>
+    </div>
+    
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
