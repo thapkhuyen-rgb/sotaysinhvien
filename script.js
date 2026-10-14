@@ -128,69 +128,204 @@ zoneButtons.forEach(btn => {
 // (Thay thế cho toàn bộ hàm decodeRoom cũ)
 // ==========================================
 
-// 1. Tọa độ (%) các khoa trên bản đồ
-const campusZones = {
-  "KT": { name: "Trường Kinh Tế", x: 68, y: 65 },       // Điều chỉnh x, y theo ảnh thực tế
-  "CNTT": { name: "Trường CNTT & TT", x: 54, y: 66 },
-  "NN": { name: "Trường Nông Nghiệp", x: 43, y: 64 },
-  "KL": { name: "Khoa Luật", x: 45, y: 85 }
+// 1. TỌA ĐỘ CHÍNH XÁC CỦA CÁC ĐỊA ĐIỂM TRÊN ẢNH SƠ ĐỒ KHU 2
+const campusLocations = {
+  // --- Khu vực Cổng A & Phía Đông (Bên phải bản đồ) ---
+  "KT":   { name: "Trường Kinh Tế", x: 68.8, y: 64.0 },
+  "MT":   { name: "Khoa Khoa học Chính trị", x: 67.5, y: 74.0 },
+  "KH":   { name: "Khoa Khoa học Tự nhiên", x: 60.8, y: 65.5 },
+  "XH":   { name: "Khoa Khoa học Xã hội và Nhân văn", x: 64.5, y: 83.8 },
+  "A3":   { name: "Nhà học A3", x: 61.0, y: 84.0 },
+  "TDTT": { name: "Khoa Giáo dục Thể chất / Nhà thi đấu mới", x: 62.0, y: 53.5 },
+
+  // --- Khu vực Cổng B & Trục Giữa ---
+  "D1":   { name: "Nhà học D1 (Nhà Điều hành)", x: 54, y: 84.0 },
+  "D2":   { name: "Nhà học D2 (Nhà Điều hành)", x: 54, y: 78.5 },
+  "TTHL": { name: "Trung tâm Học liệu", x: 57.0, y: 85.0 },
+  "C1":   { name: "Nhà học C1", x: 55.0, y: 73.5 },
+  "DI":   { name: "Trường Công nghệ Thông tin & Truyền thông", x: 54.0, y: 66.0 },
+  "B1":   { name: "Nhà học B1", x: 51.0, y: 56.0 },
+  "CN":   { name: "Trường Bách Khoa", x: 52.0, y: 46.5 },
+  "NN":   { name: "Trường Nông nghiệp", x: 43.5, y: 63.5 },
+  "HTR":  { name: "Hội trường Rùa", x: 46.0, y: 79.0 },
+
+  // --- Khu vực Cổng C & Phía Tây (Bên trái bản đồ) ---
+  "ATL":  { name: "Tòa nhà Công nghệ cao (ATL)", x: 48.0, y: 85.0 },
+  "KL":   { name: "Khoa Luật", x: 44.5, y: 84.0 },
+  "K1":   { name: "Trung tâm Ngoại ngữ", x: 44.5, y: 87.0 },
+  "C2":   { name: "Nhà học C2", x: 41.0, y: 73.0 },
+  "KSP":  { name: "Khoa Sư phạm", x: 38.8, y: 73.5 },
+  "DB":   { name: "Khoa Dự bị Dân tộc", x: 35.5, y: 71.5 },
+  "RLC":  { name: "Tòa nhà Khu phức hợp Phòng thí nghiệm (RLC)", x: 45.5, y: 49.5 },
+  "CNSH": { name: "Viện CN Sinh học và Thực phẩm", x: 40.5, y: 49.8 },
+  "TS":   { name: "Trường Thủy sản", x: 42.5, y: 39.0 },
+  "MTN":  { name: "Khoa Môi trường & Tài nguyên Thiên nhiên", x: 25.8, y: 59.8 },
+
+  // --- ĐỊA ĐIỂM NGOÀI KHU 2 (KHÔNG CÓ TỌA ĐỘ TRÊN BẢN ĐỒ NÀY) ---
+  "TTGDQP": {
+    name: "Trung tâm Giáo dục Quốc phòng và An ninh",
+    isOffCampus: true,
+    locationDesc: "Khu Hòa An (Huyện Phụng Hiệp, Hậu Giang) — Không nằm trong Khu II Cần Thơ."
+  }
 };
 
-// 2. Khai báo phần tử DOM
-const roomInput = document.getElementById("roomInput");
-const lookupBtn = document.getElementById("lookupBtn");
-const lookupResult = document.getElementById("lookupResult");
-const mapMarker = document.getElementById("mapMarker");
-const markerLabel = document.getElementById("markerLabel");
+// 2. BỘ QUY TẮC NHẬN DIỆN CÁC PHÒNG ĐẶC BIỆT (KHÔNG DÙNG DẤU GẠCH CHÉO "/")
+const specialRules = [
+  // Thực tập Hóa, Lý, Sinh - Khoa KHTN
+  { pattern: /^(H[23]-KH[12]|HPTICH|HOAPT[12]|HOATN1|PTN\/KH)$/i, targetKey: "KH", label: "Phòng Thực tập Hóa học" },
+  { pattern: /^(L[12]-KH[12])$/i, targetKey: "KH", label: "Phòng Thực tập Vật lý" },
+  { pattern: /^(SH[45]|TNSINH|TTSINH)$/i, targetKey: "KH", label: "Phòng Thực tập Sinh học" },
 
-// 3. Hàm kiểm tra và phản hồi kết quả
-function handleSearchRoom() {
-  const value = roomInput.value.trim().toUpperCase();
+  // Tin học đại cương - Trường CNTT&TT
+  { pattern: /^(DITHUD|TH\d+DI)$/i, targetKey: "DI", label: "Phòng Thực tập Tin học" },
 
-  // Trường hợp 1: Để trống ô tìm kiếm
-  if (!value) {
-    if (mapMarker) mapMarker.classList.add("hidden");
-    lookupResult.innerHTML = "⚠️ Vui lòng nhập mã phòng (Ví dụ mẫu: <strong>101/KT</strong>).";
-    return;
+  // Phòng thí nghiệm và thực hành chuyên ngành
+  { pattern: /^PTN-?SH$/i, targetKey: "CNSH", label: "Phòng thí nghiệm Viện CNSH&TP" },
+  { pattern: /^PMT-?XH$/i, targetKey: "XH", label: "Phòng máy tính Khoa KHXH&NV" },
+
+  // Hội trường chuyên khoa
+  { pattern: /^HTKHTN$/i, targetKey: "KH", label: "Hội trường Khoa KHTN" },
+  { pattern: /^HTXHNV$/i, targetKey: "XH", label: "Hội trường Khoa KHXH&NV" },
+  { pattern: /^HT\/?KSP$/i, targetKey: "KSP", label: "Hội trường Khoa Sư phạm" },
+  { pattern: /^HTR$/i, targetKey: "HTR", label: "Hội trường Rùa" },
+
+  // Quốc phòng an ninh
+  { pattern: /^TTGDQP$/i, targetKey: "TTGDQP", label: "Trung tâm GDQP&AN" }
+];
+
+// 3. BỘ PHÂN TÍCH VÀ BÓC TÁCH MÃ PHÒNG (MULTI-PATTERN PARSER)
+function parseClassroom(rawInput) {
+  const input = rawInput.trim().toUpperCase();
+
+  // A. Trường hợp: Lớp học trực tuyến / phòng ảo (TTxxKH, TTxxLK, TTQPxx)
+  // DÒNG MỚI: Chỉ nhận diện phòng ảo khi có số lớp hoặc tiền tố xx thực sự, loại trừ hoàn toàn TTGDQP
+    if (/^TT\d*(KH|LK|QP\d+)$/i.test(input)) {
+    return {
+      status: "ONLINE",
+      msg: `💻 Mã phòng <strong>${input}</strong> là phòng học trực tuyến (Google Meet / E-Learning), không học trực tiếp tại giảng đường.`
+    };
   }
 
-  // Trường hợp 2: Đúng cấu trúc có dấu gạch chéo "/"
-  if (value.includes("/")) {
-    const parts = value.split("/");
-    const roomPart = parts[0].trim();
-    const deptPart = parts[1].trim();
-
-    // Kiểm tra xem mã khoa có trong dữ liệu không
-    if (campusZones[deptPart]) {
-      const zone = campusZones[deptPart];
-
-      lookupResult.innerHTML = `✅ Tìm thấy: Phòng <strong>${roomPart}</strong> thuộc <strong>${zone.name}</strong>.`;
-      
-      // Hiển thị vòng tròn định vị
-      if (mapMarker) {
-        mapMarker.style.left = `${zone.x}%`;
-        mapMarker.style.top = `${zone.y}%`;
-        if (markerLabel) markerLabel.innerText = zone.name;
-        mapMarker.classList.remove("hidden");
-      }
-      return;
-    } else {
-      // Đúng cấu trúc nhưng mã khoa không tồn tại
-      if (mapMarker) mapMarker.classList.add("hidden");
-      lookupResult.innerHTML = `❌ Không tìm thấy khoa/viện có mã <strong>"${deptPart}"</strong>. Vui lòng kiểm tra lại.`;
-      return;
+  // B. Trường hợp: Các phòng thực tập, hội trường đặc biệt (H2-KH1, SH4, DITHUD, TTGDQP...)
+  for (const rule of specialRules) {
+    if (rule.pattern.test(input)) {
+      return {
+        status: "FOUND",
+        targetKey: rule.targetKey,
+        roomText: input,
+        extraDesc: rule.label
+      };
     }
   }
 
-  // Trường hợp 3: Sai cấu trúc (không có dấu "/")
-  if (mapMarker) mapMarker.classList.add("hidden");
-  lookupResult.innerHTML = `⚠️ Sai định dạng tìm kiếm! Vui lòng nhập theo cú pháp: <strong>[Số phòng]/[Mã khoa]</strong> (Ví dụ: <strong>101/KT</strong>, <strong>203/CNTT</strong>).`;
+  // C. Trường hợp: Có dấu gạch chéo chuẩn (VD: 101/KT, 202/C1, 301/DI, 105/A3)
+  if (input.includes("/")) {
+    const [room, code] = input.split("/").map(s => s.trim());
+    return {
+      status: "FOUND",
+      targetKey: code,
+      roomText: `Phòng ${room}`,
+      extraDesc: ""
+    };
+  }
+
+  // D. Trường hợp: Viết liền không dấu "/" (VD: 101ATL, 203RLC, KT, C1)
+  const directMatch = input.match(/^(\d{0,3})([A-Z0-9]+)$/);
+  if (directMatch) {
+    const roomPart = directMatch[1];
+    const codePart = directMatch[2];
+
+    if (campusLocations[codePart]) {
+      return {
+        status: "FOUND",
+        targetKey: codePart,
+        roomText: roomPart ? `Phòng ${roomPart}` : "",
+        extraDesc: ""
+      };
+    }
+  }
+
+  return { status: "UNKNOWN" };
 }
 
-// 4. Lắng nghe sự kiện Click nút và nhấn Enter
-lookupBtn.addEventListener("click", handleSearchRoom);
-roomInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") handleSearchRoom();
+// 4. BỘ ĐIỀU KHIỂN SỰ KIỆN GIAO DIỆN
+document.addEventListener("DOMContentLoaded", () => {
+  const roomInput = document.getElementById("roomInput");
+  const lookupBtn = document.getElementById("lookupBtn");
+  const lookupResult = document.getElementById("lookupResult");
+  const mapMarker = document.getElementById("mapMarker");
+  const markerLabel = document.getElementById("markerLabel");
+
+  if (!roomInput || !lookupBtn || !lookupResult) return;
+
+  function executeSearch() {
+    const rawVal = roomInput.value.trim();
+
+    if (!rawVal) {
+      if (mapMarker) mapMarker.classList.add("hidden");
+      lookupResult.innerHTML = "⚠️ Vui lòng nhập mã phòng hoặc mã dãy nhà cần tìm.";
+      return;
+    }
+
+    if (rawVal === "TTGDQP") {
+    if (mapMarker) mapMarker.classList.add("hidden");
+    lookupResult.innerHTML = "📢 <strong>Các phòng học thuộc Trung tâm Giáo dục Quốc phòng và An ninh ở Khu Hòa An (Hậu Giang cũ).</strong>";
+    return;
+  }
+
+    const result = parseClassroom(rawVal);
+
+    // Xử lý thông báo phòng học Online
+    if (result.status === "ONLINE") {
+      if (mapMarker) mapMarker.classList.add("hidden");
+      lookupResult.innerHTML = result.msg;
+      return;
+    }
+
+    // Xử lý khi nhận diện được địa điểm
+    if (result.status === "FOUND") {
+      const loc = campusLocations[result.targetKey];
+
+      if (!loc) {
+        if (mapMarker) mapMarker.classList.add("hidden");
+        lookupResult.innerHTML = `⚠️ Nhận diện được mã <strong>${result.targetKey}</strong> nhưng chưa có thông tin vị trí.`;
+        return;
+      }
+
+      // NẾU LÀ ĐỊA ĐIỂM NGOÀI KHU II (HIỂN THỊ CHỮ THÔNG BÁO, ẨN MARKER)
+      if (loc.isOffCampus) {
+        if (mapMarker) mapMarker.classList.add("hidden");
+        lookupResult.innerHTML = `
+          🏢 <strong>${loc.name}</strong><br>
+          📢 <em>Thông báo: ${loc.locationDesc}</em>
+        `;
+        return;
+      }
+
+      // ĐỊA ĐIỂM NẰM TRONG KHU II (ĐỊNH VỊ CHÍNH XÁC TRÊN BẢN ĐỒ)
+      const detailText = result.extraDesc ? `— ${result.extraDesc}` : "";
+      lookupResult.innerHTML = `📍 <strong>${loc.name}</strong>${result.roomText ? `(${result.roomText})` : ""} ${detailText}`;
+
+      if (mapMarker) {
+        mapMarker.style.left = `${loc.x}%`;
+        mapMarker.style.top = `${loc.y}%`;
+        if (markerLabel) {
+          markerLabel.innerText = `${loc.name}${result.roomText ? `[${result.roomText}]` : ""}`;
+        }
+        mapMarker.classList.remove("hidden");
+      }
+      return;
+    }
+
+    // Không tìm thấy kết quả phù hợp
+    if (mapMarker) mapMarker.classList.add("hidden");
+    lookupResult.innerHTML = `❌ Không tìm thấy thông tin cho mã: <strong>"${rawVal}"</strong>. Vui lòng kiểm tra lại thời khóa biểu.`;
+  }
+
+  lookupBtn.addEventListener("click", executeSearch);
+  roomInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") executeSearch();
+  });
 });
 
 // 3. Logic phóng to ảnh (Lightbox Modal) có hỗ trợ Zoom & Kéo bằng cả PC & Điện thoại
