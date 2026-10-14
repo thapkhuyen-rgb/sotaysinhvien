@@ -1,3 +1,18 @@
+/* Nhập trực tiếp font dự phòng (đảm bảo 100% nạp được font kể cả khi link HTML trục trặc) */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap');
+
+/* Ép tất cả mọi phần tử trên trang web dùng đúng phông Be Vietnam Pro */
+*,
+*::before,
+*::after {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 :root {
   --bg: #eff8e9;
   --paper: #fffdf9;
@@ -24,7 +39,9 @@ html {
 }
 
 body {
-  font-family: "Segoe UI", "Arial", sans-serif;
+  font-family: 'Be Vietnam Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background: #f7f9f3;
   color: var(--text);
   line-height: 1.6;
@@ -1157,4 +1174,114 @@ body {
   font-size: 0.95rem;
   color: #334155;
   transition: all 0.2s ease;
+}
+
+/* Card bao ngoài */
+.item-card-dropdown {
+  background-color: transparent;
+  border-bottom: 1px solid #eef0f2;
+  transition: background-color 0.15s ease;
+}
+
+/* Ẩn triệt để dấu tam giác ▶ mặc định của thẻ summary */
+.card-summary {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 8px;
+  cursor: pointer;
+  list-style: none !important;
+  user-select: none;
+}
+
+.card-summary::-webkit-details-marker,
+.card-summary::marker {
+  display: none !important;
+}
+
+/* Cụm bên trái: Icon + Text */
+.summary-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.title-wrap .main-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.title-wrap .sub-title {
+  margin: 4px 0 0 0;
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+/* Cụm bên phải: Mũi tên góc trên + Chữ TỪNG NGÀY góc dưới */
+.summary-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 48px;
+  padding-left: 12px;
+}
+
+/* Mũi tên góc phải trên */
+.chevron-arrow {
+  font-size: 1rem;
+  color: #94a3b8;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+/* Xoay mũi tên lên khi đang mở thư mục */
+.item-card-dropdown[open] .chevron-arrow {
+  transform: rotate(180deg);
+}
+
+/* Nhãn chữ TỪNG NGÀY */
+.badge-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #475569;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* Nội dung bên trong thư mục khi mở ra */
+.dropdown-content {
+  padding: 10px 16px 18px 52px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.content-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.92rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.content-row .dot {
+  color: #64748b;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.content-row p {
+  margin: 0;
 }

@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Website thông tin hữu ích cho sinh viên mới: nơi học, gia sư, chỗ ở, ăn uống và môi trường đại học." />
   <title>FreshStart | Hướng dẫn sinh viên mới</title>
+  <!-- Nhúng phông Be Vietnam Pro hỗ trợ 100% tiếng Việt -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -133,7 +137,43 @@
               <h2>05. Mẹo sinh viên <span aria-hidden="true">✨</span></h2>
               <p class="notebook-intro">Ba điều nhỏ giúp bạn chăm sóc thời gian, nơi ở và chính mình.</p>
               <div class="notebook-rows">
-                <div class="notebook-row"><span class="notebook-icon">🕒</span><div><h3>Quản lý thời gian</h3><p>Chia thời gian hợp lý cho học tập, nghỉ ngơi và sinh hoạt cá nhân.</p></div><span class="notebook-meta">TỪNG NGÀY</span></div>
+                <details class="item-card-dropdown">
+                <summary class="card-summary">
+                  <!-- Cụm bên trái: Icon + Tiêu đề & Mô tả -->
+                  <div class="summary-left">
+                    <div class="icon-wrap">
+                      <span class="status-icon">🕒</span>
+                    </div>
+                    <div class="title-wrap">
+                      <h3 class="main-title">Quản lý thời gian</h3>
+                      <p class="sub-title">Chia thời gian hợp lý cho học tập, nghỉ ngơi và sinh hoạt cá nhân.</p>
+                    </div>
+                  </div>
+
+                  <!-- Cụm bên phải: Mũi tên ở trên + Chữ TỪNG NGÀY ở dưới -->
+                  <div class="summary-right">
+                    <span class="chevron-arrow">▾</span>
+                    <span class="badge-label">TỪNG NGÀY</span>
+                  </div>
+                </summary>
+
+                <!-- Nội dung thư mục khi bấm sổ xuống -->
+                <div class="dropdown-content">
+                  <div class="content-row">
+                    <span class="dot">•</span>
+                    <p><strong>Lập thời gian biểu:</strong> Cố định lịch học trên giảng đường và các buổi sinh hoạt khoa.</p>
+                  </div>
+                  <div class="content-row">
+                    <span class="dot">•</span>
+                    <p><strong>Ôn tập buổi tối:</strong> Dành 1–2 tiếng tự học hoặc giải bài tập kinh tế / đại cương.</p>
+                  </div>
+                  <div class="content-row">
+                    <span class="dot">•</span>
+                    <p><strong>Cân bằng sức khỏe:</strong> Đảm bảo ngủ đủ 7 tiếng và rèn luyện thể chất hằng ngày.</p>
+                  </div>
+                </div>
+              </details>
+
                 <div class="notebook-row"><span class="notebook-icon">🛡️</span><div><h3>Chọn nơi ở an toàn</h3><p>Ưu tiên khu gần trường, an ninh tốt và đủ tiện nghi cần thiết.</p></div><span class="notebook-meta">AN TÂM</span></div>
                 <div class="notebook-row"><span class="notebook-icon">🌿</span><div><h3>Thích nghi dần dần</h3><p>Đừng vội lo lắng. Mỗi ngày có thể giúp bạn tìm ra thói quen phù hợp.</p></div><span class="notebook-meta">THEO NHỊP RIÊNG</span></div>
               </div>
@@ -142,39 +182,7 @@
           </div>
           <div class="category-folder-container">
 
-          <!-- THƯ MỤC 1: HỒ SƠ NHẬP HỌC -->
-          <details class="folder-group" open>
-          <summary class="folder-header">
-            <span class="folder-icon">📁</span>
-            <span class="folder-title">Hồ Sơ & Thủ Tục Nhập Học</span>
-            <span class="badge-count" id="count-docs">0/4</span>
-          </summary>
-          <div class="folder-content">
-            <label class="checklist-item">
-              <input type="checkbox" class="task-check" data-id="doc-1">
-              <span class="checkmark"></span>
-              <span class="item-text">Giấy báo trúng tuyển bản chính</span>
-            </label>
-
-            <label class="checklist-item">
-              <input type="checkbox" class="task-check" data-id="doc-2">
-              <span class="checkmark"></span>
-              <span class="item-text">Bản sao công chứng Học bạ THPT</span>
-            </label>
-
-            <label class="checklist-item">
-              <input type="checkbox" class="task-check" data-id="doc-3">
-              <span class="checkmark"></span>
-              <span class="item-text">Bản sao Căn cước công dân (CCCD) có công chứng</span>
-            </label>
-
-            <label class="checklist-item">
-              <input type="checkbox" class="task-check" data-id="doc-4">
-              <span class="checkmark"></span>
-              <span class="item-text">Giấy xác nhận đăng ký tạm vắng / nghĩa vụ quân sự</span>
-            </label>
-          </div>
-        </details>
+          
 
           <!-- THƯ MỤC 2: ĐỒ DÙNG KÝ TÚC XÁ / TRỌ -->
           <details class="folder-group">
