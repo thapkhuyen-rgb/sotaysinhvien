@@ -355,3 +355,47 @@ modalImg.addEventListener("click", (e) => {
   lastTap = currentTime;
 });
 
+// Quản lý trạng thái lưu trữ của Checklist
+document.addEventListener("DOMContentLoaded", () => {
+  const checkboxes = document.querySelectorAll(".task-check");
+
+  // 1. Tải trạng thái đã lưu từ LocalStorage lên giao diện
+  checkboxes.forEach((box) => {
+    const id = box.dataset.id;
+    const isSaved = localStorage.getItem(`checklist_${id}`) === "true";
+    box.checked = isSaved;
+  });
+
+  updateFolderProgress();
+
+  // 2. Lưu lại mỗi khi người dùng tích/bỏ tích
+  checkboxes.forEach((box) => {
+    box.addEventListener("change", (e) => {
+      const id = e.target.dataset.id;
+      localStorage.setItem(`checklist_${id}`, e.target.checked);
+      updateFolderProgress();
+    });
+  });
+
+  // 3. Hàm tính toán và cập nhật số lượng đã xong trên từng thư mục
+  function updateFolderProgress() {
+    const folders = document.querySelectorAll(".folder-group");
+
+    folders.forEach((folder) => {
+      const total = folder.querySelectorAll(".task-check").length;
+      const completed = folder.querySelectorAll(".task-check:checked").length;
+      const badge = folder.querySelector(".badge-count");
+
+      if (badge) {
+        badge.innerText = `${completed}/${total}`;
+        if (completed === total && total > 0) {
+          badge.style.background = "#dcfce7";
+          badge.style.color = "#15803d"; // Đổi màu xanh lá khi xong hết
+        } else {
+          badge.style.background = "#e2e8f0";
+          badge.style.color = "#475569";
+        }
+      }
+    });
+  }
+});
