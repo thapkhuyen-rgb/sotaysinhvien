@@ -1716,3 +1716,259 @@ body {
     padding: 10px 8px 14px 8px !important; /* Không thụt lề 52px nữa */
   }
 }
+
+/* ==========================================================
+   TỐI ƯU GIAO DIỆN DI ĐỘNG CHUẨN XÁC THEO 4 YÊU CẦU
+   ========================================================== */
+@media (max-width: 768px) {
+  /* --------------------------------------------------
+     1. HERO: CHỮ FRESHSTART CANH GIỮA, ICON ĐỘNG VẬT NHỎ GỌN
+  -------------------------------------------------- */
+  .hero {
+    min-height: auto !important;
+    padding: 40px 0 50px !important;
+  }
+  .hero-copy {
+    width: 100% !important;
+    padding: 0 16px !important;
+    text-align: center !important;
+  }
+  .hero-copy h1 {
+    font-size: 2.2rem !important; /* Hạ kích thước vừa vặn bề ngang điện thoại */
+    line-height: 1.2 !important;
+    text-align: center !important;
+    word-break: keep-all !important;
+    margin: 0 auto !important;
+  }
+  .hero-copy .lead {
+    font-size: 0.95rem !important;
+    margin: 16px auto 26px !important;
+    line-height: 1.5 !important;
+    max-width: 90% !important;
+  }
+  /* Icon hoạt hình thu nhỏ lại và đẩy ra sát biên để không che chữ */
+  .hero-doodle {
+    font-size: 1.6rem !important;
+    opacity: 0.65 !important;
+  }
+  .doodle-mouse { top: 0% !important; left: 2% !important; }
+  .doodle-cow { top: 2% !important; right: 2% !important; }
+  .doodle-balloon { top: 35% !important; left: 1% !important; font-size: 1.4rem !important; }
+  .doodle-octopus { top: 38% !important; right: 1% !important; font-size: 1.4rem !important; }
+  .doodle-bird { right: 4% !important; bottom: 0% !important; }
+  .doodle-wifi { left: 4% !important; bottom: 0% !important; }
+
+  /* --------------------------------------------------
+     2. FOOTER: SẮP XẾP NGAY NGẮN, LIỀN MẠCH TỪ TRÊN XUỐNG
+  -------------------------------------------------- */
+  .footer-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+    padding-bottom: 24px !important;
+  }
+  .footer-brand-box .brand {
+    font-size: 1.6rem !important;
+    display: block !important;
+    white-space: nowrap !important; /* Không bị rớt dòng chữ Fresh / Start */
+  }
+  .footer-brand-box p {
+    font-size: 0.88rem !important;
+    margin-top: 6px !important;
+    line-height: 1.5 !important;
+  }
+  .footer-links h4 {
+    font-size: 1rem !important;
+    margin-bottom: 8px !important;
+    color: #ffffff !important;
+  }
+  .footer-links a,
+  .footer-links span {
+    font-size: 0.88rem !important;
+    line-height: 1.6 !important;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 8px !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 16px 0 24px !important;
+  }
+
+  /* --------------------------------------------------
+     3 & 4. GIỮ NGUYÊN BỐ CỤC 2 CỘT (MỤC LỤC BÊN TRÁI, SỔ BÊN PHẢI)
+     NHƯNG THU NHỎ TỈ LỆ (PROPORTIONAL SCALE) ĐỂ KHÔNG BỊ TRÀN
+  -------------------------------------------------- */
+  .notebook-section {
+    padding: 20px 0 35px !important;
+  }
+  .container {
+    width: 100% !important;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+  /* Phân chia tỉ lệ: Sidebar 85px gọn gàng bên trái, Quyển sổ chiếm phần còn lại */
+  .notebook-layout {
+    display: grid !important;
+    grid-template-columns: 88px minmax(0, 1fr) !important;
+    gap: 6px !important;
+    align-items: stretch !important;
+  }
+
+  /* Sidebar bên trái nhỏ gọn */
+  .notebook-sidebar {
+    display: flex !important;
+    min-height: auto !important;
+    padding: 8px 4px !important;
+    border-radius: 8px !important;
+  }
+  .notebook-brand {
+    font-size: 0.72rem !important;
+    padding: 2px 2px 8px !important;
+    gap: 3px !important;
+    white-space: nowrap !important;
+  }
+  .notebook-sidebar-label {
+    display: block !important;
+    font-size: 0.58rem !important;
+    padding: 4px 2px !important;
+  }
+  .notebook-nav {
+    display: grid !important;
+    flex-direction: column !important;
+    overflow-x: visible !important;
+    gap: 4px !important;
+  }
+  .notebook-tab {
+    padding: 6px 4px !important;
+    font-size: 0.72rem !important;
+    border-radius: 5px !important;
+    line-height: 1.25 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+  }
+  .notebook-tab span {
+    width: 14px !important;
+    flex: 0 0 14px !important;
+    font-size: 0.8rem !important;
+  }
+  .notebook-note {
+    display: none !important; /* Ẩn bớt ghi chú nhỏ để nhường chỗ */
+  }
+
+  /* Quyển sổ bên phải rộng mở tối đa */
+  .notebook-book {
+    padding: 4px 6px 8px 14px !important; /* Giữ gáy lò xo nhưng viền mỏng */
+    border-width: 3px !important;
+    border-radius: 8px !important;
+  }
+  .notebook-book::before {
+    width: 10px !important; /* Răng lò xo thanh mảnh */
+    background: radial-gradient(circle at center, #d8e9c9 2.5px, transparent 3px) 0 0 / 100% 24px repeat-y, #477b4b !important;
+  }
+  .notebook-paper {
+    min-height: auto !important;
+    padding: 16px 10px 14px !important; /* Giảm padding viền để ruột sổ mở rộng tối đa */
+  }
+
+  /* Định dạng nội dung bài viết và Accordion không bị bóp nghẹt */
+  .notebook-kicker {
+    font-size: 0.6rem !important;
+    margin-bottom: 4px !important;
+  }
+  .notebook-page h2 {
+    font-size: 1.15rem !important;
+    line-height: 1.3 !important;
+    margin-right: 0 !important;
+    margin-bottom: 6px !important;
+  }
+  .notebook-intro {
+    font-size: 0.82rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 12px !important;
+  }
+  .notebook-page-count {
+    top: 10px !important;
+    right: 8px !important;
+    font-size: 0.65rem !important;
+  }
+
+  /* Khối thẻ gập Accordion co giãn thông minh */
+  .card-summary {
+    padding: 10px 4px !important;
+    align-items: flex-start !important;
+  }
+  .summary-left {
+    gap: 8px !important;
+  }
+  .icon-wrap, .status-icon {
+    font-size: 1.1rem !important;
+  }
+  .title-wrap .main-title {
+    font-size: 0.88rem !important;
+    line-height: 1.35 !important;
+  }
+  .title-wrap .sub-title {
+    font-size: 0.74rem !important;
+    line-height: 1.3 !important;
+  }
+  .summary-right {
+    min-height: auto !important;
+    padding-left: 4px !important;
+  }
+  .badge-label {
+    font-size: 0.65rem !important;
+    white-space: nowrap !important;
+  }
+  /* Triệt tiêu độ thụt lề 52px để chữ dàn kín màn hình */
+  .dropdown-content {
+    padding: 8px 4px 12px 6px !important;
+    gap: 8px !important;
+  }
+  .content-row {
+    font-size: 0.82rem !important;
+    line-height: 1.45 !important;
+    gap: 6px !important;
+  }
+  .content-row p {
+    word-break: break-word !important;
+  }
+
+  /* Khung tra cứu phòng học và nút điều hướng phía dưới */
+  .notebook-page .room-lookup-box {
+    padding: 10px 8px !important;
+  }
+  .input-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+  }
+  .input-group input {
+    width: 100% !important;
+    padding: 8px 10px !important;
+    font-size: 0.85rem !important;
+  }
+  .input-group button {
+    width: 100% !important;
+    padding: 8px !important;
+    font-size: 0.85rem !important;
+  }
+  .lookup-result {
+    font-size: 0.82rem !important;
+    padding: 8px !important;
+  }
+  .campus-btn {
+    padding: 5px 8px !important;
+    font-size: 0.75rem !important;
+  }
+  .notebook-controls {
+    padding-top: 12px !important;
+    gap: 4px !important;
+  }
+  .page-button {
+    min-height: 34px !important;
+    padding: 0 6px !important;
+    font-size: 0.7rem !important;
+  }
+}
