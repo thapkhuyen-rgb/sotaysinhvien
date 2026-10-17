@@ -182,13 +182,36 @@ img {
   color: var(--primary-dark);
 }
 
+/* ==========================================================
+   THU GỌN KHOẢNG CÁCH THỪA GIỮA HERO VÀ SỔ TAY
+   ========================================================== */
 .hero {
-  display: grid;
-  min-height: calc(100svh - 82px);
-  align-items: center;
-  overflow: hidden;
-  padding: 70px 0;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  min-height: auto !important;     /* Xóa bỏ hoàn toàn ép 100svh */
+  height: auto !important;
+  padding: 40px 0 30px !important; /* Thu gọn đệm trên 40px, dưới 30px */
   background: #eff8e9;
+}
+
+.hero-copy {
+  margin: 0 auto !important;
+}
+
+.hero-copy h1 {
+  font-size: 3.5rem !important;
+  margin-bottom: 8px !important;
+}
+
+.lead {
+  max-width: 720px !important;
+  margin: 10px auto 20px !important; /* Giảm khoảng cách giữa chữ và nút bấm */
+  font-size: 1.1rem !important;
+}
+
+.notebook-section {
+  padding: 20px 0 50px !important; /* Giảm khoảng cách đệm phía trên của sổ */
 }
 
 .hero-content {
