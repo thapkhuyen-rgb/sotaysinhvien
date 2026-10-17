@@ -600,133 +600,81 @@ img {
 }
 
 @media (max-width: 760px) {
-  .section {
-    padding: 72px 0;
-  }
-
-  .hero {
-    min-height: 660px;
-    padding: 70px 0;
-  }
-
-  .footer-wrap {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-copy h1 {
-    font-size: 2.8rem;
-  }
-
-  .hero-copy h1 {
-    font-size: 3rem;
-  }
-
-  .lead {
-    margin: 24px auto 32px;
-    font-size: 1rem;
-  }
-
-  .hero-actions .btn-primary {
-    min-height: 58px;
-    padding: 0 26px;
-  }
-
-  .hero-doodle {
-    font-size: 2.4rem;
-  }
-
-  .doodle-mouse { top: 2%; left: 1%; }
-  .doodle-cow { top: 4%; right: 0; }
-  .doodle-balloon { top: 39%; left: -2%; }
-  .doodle-octopus { top: 43%; right: -2%; }
-  .doodle-bird { right: 1%; bottom: 2%; }
-  .doodle-wifi { left: 2%; bottom: 0; }
-
-  .notebook-section {
-    padding: 32px 0 48px;
-  }
-
-  .notebook-layout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 12px;
-  }
-
-  .notebook-sidebar {
-    min-height: 0;
-    padding: 12px;
-  }
-
-  .notebook-brand {
-    padding: 2px 5px 10px;
-  }
-
-  .notebook-sidebar-label,
-  .notebook-note {
-    display: none;
-  }
-
+  /* 1. Tối ưu thanh cuộn tab mục lục ngang mượt mà trên cảm ứng */
   .notebook-nav {
     display: flex;
     overflow-x: auto;
-    gap: 5px;
-    padding-bottom: 2px;
+    gap: 8px;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Ẩn scrollbar trên Firefox */
   }
-
+  .notebook-nav::-webkit-scrollbar {
+    display: none; /* Ẩn scrollbar trên Chrome/Safari */
+  }
   .notebook-tab {
-    width: auto;
     flex: 0 0 auto;
-    padding: 9px 10px;
-    white-space: nowrap;
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    border-radius: 20px;
+    background: #eef5e6;
   }
 
-  .notebook-book {
-    padding: 6px 7px 9px 20px;
-  }
-
-  .notebook-book::before {
-    width: 13px;
-  }
-
+  /* 2. Giảm padding của trang sổ tay để dành không gian cho nội dung */
   .notebook-paper {
-    min-height: 620px;
-    padding: 26px 16px 18px;
+    min-height: auto;
+    padding: 20px 14px 16px; /* Giảm từ 36px xuống 14px */
   }
-
-  .notebook-page-count {
-    top: 15px;
-    right: 15px;
-  }
-
+  
   .notebook-page h2 {
-    margin-right: 35px;
-    font-size: 1.4rem;
+    font-size: 1.35rem;
+    margin-right: 0;
+    line-height: 1.3;
   }
 
-  .notebook-row {
-    grid-template-columns: 32px minmax(0, 1fr);
-    gap: 7px;
-    padding: 11px 0;
+  /* 3. SỬA TRIỆT ĐỂ LỖI THỤT LỀ TRÊN ĐIỆN THOẠI */
+  .dropdown-content {
+    padding: 8px 8px 14px 12px !important; /* Hạ từ 52px xuống 12px */
   }
 
-  .notebook-meta {
-    grid-column: 2;
-    margin-top: -3px;
-    text-align: left;
+  /* 4. Tối ưu thanh tiêu đề thẻ Accordion */
+  .card-summary {
+    padding: 12px 6px !important;
+    gap: 8px;
+  }
+  .summary-left {
+    gap: 10px;
+  }
+  .summary-right {
+    min-height: auto;
+    padding-left: 6px;
+  }
+  .badge-label {
+    font-size: 0.72rem;
+    padding: 2px 6px;
   }
 
+  /* 5. Vùng bấm điều hướng trang thân thiện với ngón tay */
   .notebook-controls {
-    gap: 6px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    padding-top: 16px;
   }
-
   .page-button {
-    min-height: 36px;
-    padding: 0 10px;
-    font-size: 0.7rem;
+    min-height: 42px; /* Đạt chuẩn tiếp xúc ngón tay tối thiểu 40px */
+    padding: 0 8px;
+    font-size: 0.8rem;
+    width: 100%;
   }
 
-  .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
+  /* 6. Nút đóng modal an toàn với thanh trạng thái (Safe Area Notch) */
+  #closeModalBtn {
+    top: calc(env(safe-area-inset-top, 12px) + 10px) !important;
+    right: 15px !important;
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
   }
 }
 
@@ -1284,4 +1232,396 @@ body {
 
 .content-row p {
   margin: 0;
+}
+
+/* Màu cho link tài liệu bên trong các thẻ dropdown */
+.dropdown-content a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s ease;
+}
+
+.dropdown-content a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+.sub-text {
+  color: #55655e;        /* Màu xám nhạt dịu mắt khớp với tông phía trên */
+  font-size: 14px;       /* Hạ cỡ chữ xuống cho mảnh và thanh mảnh như phía trên */
+  line-height: 1.7;      /* Giãn cách dòng thoáng mắt */
+}
+
+/* Khung chứa ảnh */
+.map-viewport {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
+  background-color: #f8fafc;
+}
+
+/* Mặc định ẩn toàn bộ các ảnh bản đồ */
+.campus-map-img {
+  display: none !important;
+  width: 100%;
+  height: auto;
+}
+
+/* Chỉ ảnh nào có class .active-map mới được hiện */
+.campus-map-img.active-map {
+  display: block !important;
+}
+
+/* Ẩn hiện marker */
+.map-marker.hidden {
+  display: none !important;
+}
+
+/* Hàng nút chọn khu vực */
+.campus-selector-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+
+.selector-label {
+  font-weight: 600;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+.campus-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.campus-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid #cbd5e1;
+  background-color: #f8fafc;
+  color: #334155;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.campus-btn:hover {
+  border-color: #2e7d32;
+  color: #2e7d32;
+}
+
+.campus-btn.active {
+  background-color: #2e7d32;
+  border-color: #2e7d32;
+  color: #ffffff;
+}
+
+/* Khung chứa ảnh */
+.map-image-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f1f5f9;
+}
+
+/* Mặc định ẩn toàn bộ ảnh bản đồ */
+.campus-map-img {
+  display: none !important;
+  width: 100%;
+  height: auto;
+}
+
+/* Chỉ ảnh của khu đang chọn mới hiển thị */
+.campus-map-img.active-map {
+  display: block !important;
+}
+
+/* Chấm ghim */
+.map-marker.hidden {
+  display: none !important;
+}
+
+/* Khung Modal nền tối toàn màn hình */
+#imageModal {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.88);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+/* Khi có class .show thì mới hiện ra */
+#imageModal.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Thẻ ảnh bên trong Modal: Triệt tiêu kéo bóng ma mặc định của trình duyệt */
+#modalImg {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none; /* Cực kỳ quan trọng: Chặn kéo bóng mờ file ảnh */
+  touch-action: none;       /* Cho phép cảm ứng JS xử lý pinch & swipe */
+  transition: transform 0.08s ease-out;
+  cursor: grab;
+}
+
+#modalImg:active {
+  cursor: grabbing;
+}
+
+/* Nút X đóng Modal: Luôn ghim cố định ở góc trên bên phải, nổi lên trên mọi lớp */
+#closeModalBtn {
+  position: fixed !important;
+  top: 20px !important;
+  right: 25px !important;
+  z-index: 100000 !important;
+  font-size: 36px;
+  line-height: 1;
+  color: #ffffff;
+  cursor: pointer;
+  background: rgba(30, 41, 59, 0.8);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+#closeModalBtn:hover {
+  background: #ef4444;
+  transform: scale(1.05);
+}
+
+/* Điều chỉnh giao diện tra cứu & bản đồ khi đưa vào trang sổ tay */
+.notebook-page .room-lookup-box {
+  background: #ffffff;
+  border: 1px solid #dce4d5;
+  box-shadow: none;
+  padding: 1.2rem;
+}
+
+.notebook-page .map-viewport {
+  max-width: 100%;
+  margin: 10px 0;
+  display: block;
+}
+
+.notebook-page .campus-map-img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: none;
+  cursor: zoom-in;
+}
+
+.notebook-page .campus-map-img.active-map {
+  display: block !important;
+}
+
+.notebook-page .campus-selector-row {
+  margin: 10px 0;
+}
+
+/* --- BẢNG LỊCH TRÌNH SINH HOẠT TÂN SINH VIÊN --- */
+.nhap-hoc-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.88rem;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #dce5cf;
+}
+.nhap-hoc-table th,
+.nhap-hoc-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid #e7eee0;
+}
+.nhap-hoc-table th {
+  background-color: #eef5e6;
+  color: #173d37;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.nhap-hoc-table tr:hover {
+  background-color: #f8faf4;
+}
+.nhap-hoc-table td strong {
+  color: #213a48;
+}
+@media (max-width: 600px) {
+  .nhap-hoc-table th,
+  .nhap-hoc-table td {
+    padding: 8px 10px;
+    font-size: 0.82rem;
+  }
+}
+
+/* --- NÚT CHUYỂN TAB CĂN TIN --- */
+.canteen-tabs-bar {
+  display: flex;
+  gap: 10px;
+  margin: 4px 0 14px 0;
+  flex-wrap: wrap;
+}
+.canteen-tab-btn {
+  padding: 7px 16px;
+  border-radius: 20px;
+  border: 1.5px solid #cbd5e1;
+  background-color: #f8fafc;
+  color: #334155;
+  font-size: 0.86rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.canteen-tab-btn:hover {
+  border-color: #2e7d32;
+  color: #2e7d32;
+}
+.canteen-tab-btn.active {
+  background-color: #2e7d32;
+  border-color: #2e7d32;
+  color: #ffffff;
+  box-shadow: 0 3px 8px rgba(46, 125, 50, 0.2);
+}
+.canteen-tab-pane {
+  animation: fadeInPane 0.25s ease-in-out;
+}
+@keyframes fadeInPane {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- PHÂN BIỆT MỤC CON BÊN TRONG DROPDOWN (MÀU BE NHẠT & THỤT LỀ) --- */
+.item-card-dropdown.sub-card-dropdown {
+  margin-left: 20px;                     /* Thụt lệch sang phải để phân cấp rõ với mục cha */
+  margin-top: 10px;
+  margin-bottom: 8px;
+  background-color: #fcf8ee !important;  /* Màu be nhạt trang nhã (soft warm beige) */
+  border: 1px solid #eadebe !important;  /* Viền be sẫm tạo ranh giới rõ ràng */
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(109, 104, 69, 0.05);
+  overflow: hidden;
+}
+
+/* Thanh tiêu đề của mục con */
+.sub-card-dropdown > .card-summary {
+  padding: 12px 14px !important;
+  background-color: #f7f1df;             /* Header màu be đậm hơn một chút */
+  border-bottom: 1px solid #ebdcb5;
+}
+
+.sub-card-dropdown > .card-summary .main-title {
+  font-size: 0.95rem !important;
+  color: #52472e !important;             /* Tông chữ nâu ấm hài hòa với nền be */
+}
+
+.sub-card-dropdown > .card-summary .badge-label {
+  color: #7d6b3e !important;
+  font-size: 0.75rem !important;
+}
+
+/* Phần nội dung mở rộng bên trong mục con */
+.sub-card-dropdown > .dropdown-content {
+  padding: 12px 16px 14px 24px !important;
+  background-color: #fcf8ee;
+}
+
+/* Responsive trên điện thoại: giảm độ thụt lề để không chiếm không gian */
+@media (max-width: 600px) {
+  .item-card-dropdown.sub-card-dropdown {
+    margin-left: 10px;
+  }
+  .sub-card-dropdown > .dropdown-content {
+    padding-left: 14px !important;
+  }
+}
+
+/* --- TỐI ƯU TRẢI NGHIỆM TRÊN SMARTPHONE NHỎ (<= 480px) --- */
+@media (max-width: 480px) {
+  /* Ô nhập tra cứu phòng học co giãn 100% */
+  .room-lookup-box {
+    padding: 1rem 0.85rem;
+  }
+  .input-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .input-group button {
+    width: 100%;
+    padding: 0.75rem;
+  }
+
+  /* Bộ nút chọn khu vực & căn tin tự xuống dòng, bo tròn dễ bấm */
+  .campus-buttons,
+  .canteen-tabs-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .campus-btn,
+  .canteen-tab-btn {
+    flex: 1 1 calc(50% - 6px); /* Chia đều 2 nút / 1 dòng */
+    text-align: center;
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+
+  /* Thư mục checklist & nội quy nằm gọn trong viền */
+  .folder-header {
+    padding: 10px 12px;
+    font-size: 0.88rem;
+  }
+  .folder-content {
+    padding: 10px 12px;
+  }
+  .checklist-item {
+    gap: 8px;
+  }
+  .item-text {
+    font-size: 0.88rem;
+  }
+
+  /* Dòng thụt lề sub-text trên mobile */
+  .sub-text {
+    font-size: 13px;
+    margin-left: 10px !important; /* Thay vì lệch 20px gây ép chữ */
+  }
+
+  /* Modal hiển thị ảnh tràn sát mép để nhìn rõ bản đồ */
+  #modalImg {
+    max-width: 96vw;
+    max-height: 80vh;
+  }
 }

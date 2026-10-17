@@ -131,35 +131,35 @@ zoneButtons.forEach(btn => {
 // 1. TỌA ĐỘ CHÍNH XÁC CỦA CÁC ĐỊA ĐIỂM TRÊN ẢNH SƠ ĐỒ KHU 2
 const campusLocations = {
   // --- Khu vực Cổng A & Phía Đông (Bên phải bản đồ) ---
-  "KT":   { name: "Trường Kinh Tế", x: 68.8, y: 64.0 },
-  "MT":   { name: "Khoa Khoa học Chính trị", x: 67.5, y: 74.0 },
-  "KH":   { name: "Khoa Khoa học Tự nhiên", x: 60.8, y: 65.5 },
-  "XH":   { name: "Khoa Khoa học Xã hội và Nhân văn", x: 64.5, y: 83.8 },
-  "A3":   { name: "Nhà học A3", x: 61.0, y: 84.0 },
+  "KT":   { name: "Trường Kinh Tế", x: 81.0, y: 64.0 },
+  "MT":   { name: "Khoa Khoa học Chính trị", x: 80.0, y: 72.0 },
+  "KH":   { name: "Khoa Khoa học Tự nhiên", x: 69.0, y: 65.5 },
+  "XH":   { name: "Khoa Khoa học Xã hội và Nhân văn", x: 74.0, y: 83.8 },
+  "A3":   { name: "Nhà học A3", x: 69.0, y: 83.0 },
   "TDTT": { name: "Khoa Giáo dục Thể chất / Nhà thi đấu mới", x: 62.0, y: 53.5 },
 
   // --- Khu vực Cổng B & Trục Giữa ---
-  "D1":   { name: "Nhà học D1 (Nhà Điều hành)", x: 54, y: 84.0 },
-  "D2":   { name: "Nhà học D2 (Nhà Điều hành)", x: 54, y: 78.5 },
-  "TTHL": { name: "Trung tâm Học liệu", x: 57.0, y: 85.0 },
-  "C1":   { name: "Nhà học C1", x: 55.0, y: 73.5 },
-  "DI":   { name: "Trường Công nghệ Thông tin & Truyền thông", x: 54.0, y: 66.0 },
-  "B1":   { name: "Nhà học B1", x: 51.0, y: 56.0 },
-  "CN":   { name: "Trường Bách Khoa", x: 52.0, y: 46.5 },
-  "NN":   { name: "Trường Nông nghiệp", x: 43.5, y: 63.5 },
-  "HTR":  { name: "Hội trường Rùa", x: 46.0, y: 79.0 },
+  "D1":   { name: "Nhà học D1 (Nhà Điều hành)", x: 56.5, y: 83.0 },
+  "D2":   { name: "Nhà học D2 (Nhà Điều hành)", x: 56.5, y: 76.5 },
+  "TTHL": { name: "Trung tâm Học liệu", x: 61.5, y: 83.5 },
+  "C1":   { name: "Nhà học C1", x: 61.5, y: 72.5 },
+  "DI":   { name: "Trường Công nghệ Thông tin & Truyền thông", x: 56.0, y: 63.0 },
+  "B1":   { name: "Nhà học B1", x: 52.0, y: 54.0 },
+  "CN":   { name: "Trường Bách Khoa", x: 53.0, y: 42.5 },
+  "NN":   { name: "Trường Nông nghiệp", x: 38.5, y: 60.5 },
+  "HTR":  { name: "Hội trường Rùa", x: 43.5, y: 77.0 },
 
   // --- Khu vực Cổng C & Phía Tây (Bên trái bản đồ) ---
-  "ATL":  { name: "Tòa nhà Công nghệ cao (ATL)", x: 48.0, y: 85.0 },
-  "KL":   { name: "Khoa Luật", x: 44.5, y: 84.0 },
-  "K1":   { name: "Trung tâm Ngoại ngữ", x: 44.5, y: 87.0 },
-  "C2":   { name: "Nhà học C2", x: 41.0, y: 73.0 },
-  "KSP":  { name: "Khoa Sư phạm", x: 38.8, y: 73.5 },
-  "DB":   { name: "Khoa Dự bị Dân tộc", x: 35.5, y: 71.5 },
-  "RLC":  { name: "Tòa nhà Khu phức hợp Phòng thí nghiệm (RLC)", x: 45.5, y: 49.5 },
-  "CNSH": { name: "Viện CN Sinh học và Thực phẩm", x: 40.5, y: 49.8 },
-  "TS":   { name: "Trường Thủy sản", x: 42.5, y: 39.0 },
-  "MTN":  { name: "Khoa Môi trường & Tài nguyên Thiên nhiên", x: 25.8, y: 59.8 },
+  "ATL":  { name: "Tòa nhà Công nghệ cao (ATL)", x: 47.0, y: 84.0 },
+  "KL":   { name: "Khoa Luật", x: 41.5, y: 84.0 },
+  "K1":   { name: "Trung tâm Ngoại ngữ", x: 40.5, y: 86.0 },
+  "C2":   { name: "Nhà học C2", x: 36.0, y: 71.0 },
+  "TSP":  { name: "Trường Sư phạm", x: 31.8, y: 71.5 },
+  "DB":   { name: "Khoa Dự bị Dân tộc", x: 26.5, y: 70.5 },
+  "RLC":  { name: "Tòa nhà Khu phức hợp Phòng thí nghiệm (RLC)", x: 41.5, y: 46.5 },
+  "CNSH": { name: "Viện CN Sinh học và Thực phẩm", x: 34.8, y: 47.0 },
+  "TS":   { name: "Trường Thủy sản", x: 37.5, y: 35.0 },
+  "MTN":  { name: "Khoa Môi trường & Tài nguyên Thiên nhiên", x: 9.5, y: 57.8 },
 
   // --- ĐỊA ĐIỂM NGOÀI KHU 2 (KHÔNG CÓ TỌA ĐỘ TRÊN BẢN ĐỒ NÀY) ---
   "TTGDQP": {
@@ -248,289 +248,366 @@ function parseClassroom(rawInput) {
   return { status: "UNKNOWN" };
 }
 
-// 4. BỘ ĐIỀU KHIỂN SỰ KIỆN GIAO DIỆN
+// Biến lưu khu vực hiện tại (mặc định Khu 2)
+let currentCampus = "khu2";
+
 document.addEventListener("DOMContentLoaded", () => {
+  const campusBtns = document.querySelectorAll(".campus-btn");
+  const allMapImgs = document.querySelectorAll(".campus-map-img");
+  const mapMarker = document.getElementById("mapMarker");
+  const lookupResult = document.getElementById("lookupResult");
   const roomInput = document.getElementById("roomInput");
   const lookupBtn = document.getElementById("lookupBtn");
-  const lookupResult = document.getElementById("lookupResult");
-  const mapMarker = document.getElementById("mapMarker");
-  const markerLabel = document.getElementById("markerLabel");
 
-  if (!roomInput || !lookupBtn || !lookupResult) return;
+  // 1. CHUYỂN ĐỔI BẢN ĐỒ GIỮA CÁC KHU
+  campusBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // Đổi class nút bấm
+      campusBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
 
+      currentCampus = btn.dataset.campus;
+
+      // Ẩn tất cả ảnh, chỉ bật đúng ảnh của khu được bấm
+      allMapImgs.forEach((img) => img.classList.remove("active-map"));
+      const selectedImg = document.getElementById(`map-${currentCampus}`);
+      if (selectedImg) {
+        selectedImg.classList.add("active-map");
+      }
+
+      // Luôn ẩn điểm ghim đỏ khi đổi khu
+      if (mapMarker) mapMarker.classList.add("hidden");
+
+      // Cập nhật thông báo trạng thái
+      if (lookupResult) {
+        if (currentCampus === "khu2") {
+          lookupResult.innerHTML = "Đang ở <strong>Khu 2</strong>. Bạn có thể tra cứu mã phòng học bên trên.";
+        } else {
+          lookupResult.innerHTML = `Đang xem sơ đồ <strong>${btn.textContent.trim()}</strong>.`;
+        }
+      }
+    });
+  });
+
+  // 2. HÀM TÌM KIẾM
   function executeSearch() {
-    const rawVal = roomInput.value.trim();
+    const rawVal = roomInput ? roomInput.value.trim().toUpperCase() : "";
 
+    // A. Nếu không phải Khu 2: Báo chưa hỗ trợ và dừng lại ngay
+    if (currentCampus !== "khu2") {
+      if (mapMarker) mapMarker.classList.add("hidden");
+      if (lookupResult) {
+        lookupResult.innerHTML = "⚠️ <strong>Hiện tại phần tìm kiếm của Khu vực này chưa được cập nhật</strong>";
+      }
+      return;
+    }
+
+    // B. Ô nhập trống
     if (!rawVal) {
       if (mapMarker) mapMarker.classList.add("hidden");
-      lookupResult.innerHTML = "⚠️ Vui lòng nhập mã phòng hoặc mã dãy nhà cần tìm.";
+      if (lookupResult) {
+        lookupResult.innerHTML = "⚠️ Vui lòng nhập mã phòng học cần tìm.";
+      }
       return;
     }
 
-    if (rawVal === "TTGDQP") {
-    if (mapMarker) mapMarker.classList.add("hidden");
-    lookupResult.innerHTML = "📢 <strong>Các phòng học thuộc Trung tâm Giáo dục Quốc phòng và An ninh ở Khu Hòa An (Hậu Giang cũ).</strong>";
-    return;
-  }
+    // C. Xử lý riêng biệt TTGDQP
+    if (rawVal === "TTGDQP" || rawVal === "GDQP") {
+      if (mapMarker) mapMarker.classList.add("hidden");
+      if (lookupResult) {
+        lookupResult.innerHTML = "📢 <strong>Các phòng học thuộc Trung tâm Giáo dục Quốc phòng và An ninh ở Khu Hòa An (Hậu Giang cũ).</strong>";
+      }
+      return;
+    }
 
+    // D. Phân tích phòng học cho Khu 2
     const result = parseClassroom(rawVal);
 
-    // Xử lý thông báo phòng học Online
     if (result.status === "ONLINE") {
       if (mapMarker) mapMarker.classList.add("hidden");
-      lookupResult.innerHTML = result.msg;
+      if (lookupResult) lookupResult.innerHTML = result.msg;
       return;
     }
 
-    // Xử lý khi nhận diện được địa điểm
     if (result.status === "FOUND") {
       const loc = campusLocations[result.targetKey];
-
-      if (!loc) {
-        if (mapMarker) mapMarker.classList.add("hidden");
-        lookupResult.innerHTML = `⚠️ Nhận diện được mã <strong>${result.targetKey}</strong> nhưng chưa có thông tin vị trí.`;
-        return;
-      }
-
-      // NẾU LÀ ĐỊA ĐIỂM NGOÀI KHU II (HIỂN THỊ CHỮ THÔNG BÁO, ẨN MARKER)
-      if (loc.isOffCampus) {
-        if (mapMarker) mapMarker.classList.add("hidden");
-        lookupResult.innerHTML = `
-          🏢 <strong>${loc.name}</strong><br>
-          📢 <em>Thông báo: ${loc.locationDesc}</em>
-        `;
-        return;
-      }
-
-      // ĐỊA ĐIỂM NẰM TRONG KHU II (ĐỊNH VỊ CHÍNH XÁC TRÊN BẢN ĐỒ)
-      const detailText = result.extraDesc ? `— ${result.extraDesc}` : "";
-      lookupResult.innerHTML = `📍 <strong>${loc.name}</strong>${result.roomText ? `(${result.roomText})` : ""} ${detailText}`;
-
-      if (mapMarker) {
-        mapMarker.style.left = `${loc.x}%`;
-        mapMarker.style.top = `${loc.y}%`;
-        if (markerLabel) {
-          markerLabel.innerText = `${loc.name}${result.roomText ? `[${result.roomText}]` : ""}`;
+      if (loc && !loc.isOffCampus) {
+        if (lookupResult) {
+          lookupResult.innerHTML = `📍 <strong>${loc.name}</strong> ${result.roomText ? `(${result.roomText})` : ""}`;
         }
-        mapMarker.classList.remove("hidden");
+        if (mapMarker) {
+          mapMarker.style.left = `${loc.x}%`;
+          mapMarker.style.top = `${loc.y}%`;
+          mapMarker.classList.remove("hidden");
+        }
+        return;
       }
-      return;
     }
 
-    // Không tìm thấy kết quả phù hợp
+    // E. Không tìm thấy
     if (mapMarker) mapMarker.classList.add("hidden");
-    lookupResult.innerHTML = `❌ Không tìm thấy thông tin cho mã: <strong>"${rawVal}"</strong>. Vui lòng kiểm tra lại thời khóa biểu.`;
+    if (lookupResult) {
+      lookupResult.innerHTML = `❌ Không tìm thấy phòng hoặc dãy nhà: <strong>"${rawVal}"</strong>.`;
+    }
   }
 
-  lookupBtn.addEventListener("click", executeSearch);
-  roomInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") executeSearch();
-  });
-});
-
-// 3. Logic phóng to ảnh (Lightbox Modal) có hỗ trợ Zoom & Kéo bằng cả PC & Điện thoại
-const modal = document.getElementById("imageModal");
-const modalImg = document.getElementById("modalImg");
-const openModalBtn = document.getElementById("openModalBtn");
-const closeModalBtn = document.getElementById("closeModalBtn");
-const mapWrapper = document.getElementById("mapWrapper");
-
-let scale = 1;
-let transformX = 0;
-let transformY = 0;
-
-let isDragging = false;
-let startX = 0;
-let startY = 0;
-
-let startTouchDistance = 0;
-let startTouchScale = 1;
-
-// 1. MỞ & ĐÓNG MODAL
-function openModal() {
-  modal.classList.add("show");
-  modalImg.src = document.getElementById("campusMapImg").src;
-  resetZoom();
-}
-
-function closeModal() {
-  modal.classList.remove("show");
-  resetZoom();
-}
-
-function resetZoom() {
-  scale = 1;
-  transformX = 0;
-  transformY = 0;
-  updateTransform();
-}
-
-function updateTransform() {
-  modalImg.style.transform = `translate(${transformX}px, ${transformY}px) scale(${scale})`;
-}
-
-mapWrapper.addEventListener("click", openModal);
-closeModalBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  closeModal();
-});
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) closeModal();
-});
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeModal();
-});
-
-
-// 2. ZOOM BẰNG CUỘN CHUỘT (PC)
-modal.addEventListener("wheel", (e) => {
-  e.preventDefault();
-  const zoomFactor = 0.1;
-  if (e.deltaY < 0) {
-    scale += zoomFactor; // Cuộn lên => Phóng to
-  } else {
-    scale -= zoomFactor; // Cuộn xuống => Thu nhỏ
+  // 3. GẮN SỰ KIỆN TÌM KIẾM
+  if (lookupBtn) {
+    lookupBtn.addEventListener("click", executeSearch);
   }
-  scale = Math.min(Math.max(1, scale), 5); // Giới hạn zoom từ 1x đến 5x
-  if (scale === 1) {
+  if (roomInput) {
+    roomInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") executeSearch();
+    });
+  }
+});
+
+// ==========================================================
+// ==========================================================
+// HỆ THỐNG LIGHTBOX ZOOM DÙNG CHUNG CHO TẤT CẢ SƠ ĐỒ
+// (Căn tin Khu 2, Sơ đồ Khu 1, Khu 2, Khu 3, Khu Hòa An)
+// ==========================================================
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImg");
+  const closeModalBtn = document.getElementById("closeModalBtn");
+
+  if (!modal || !modalImg) return;
+
+  let scale = 1;
+  let transformX = 0;
+  let transformY = 0;
+  let isDragging = false;
+  let startX = 0;
+  let startY = 0;
+  let hasDragged = false;
+  let startTouchDistance = 0;
+  let startTouchScale = 1;
+  let lastTap = 0;
+
+  function updateTransform() {
+    modalImg.style.transform = `translate(${transformX}px, ${transformY}px) scale(${scale})`;
+  }
+
+  function resetZoom() {
+    scale = 1;
     transformX = 0;
     transformY = 0;
-  }
-  updateTransform();
-}, { passive: false });
-
-
-// 3. KÉO ĐỂ DI CHUYỂN (PC & Di động)
-function startDrag(clientX, clientY) {
-  if (scale > 1) {
-    isDragging = true;
-    startX = clientX - transformX;
-    startY = clientY - transformY;
-    modalImg.style.cursor = "grabbing";
-  }
-}
-
-function drag(clientX, clientY) {
-  if (!isDragging) return;
-  transformX = clientX - startX;
-  transformY = clientY - startY;
-  updateTransform();
-}
-
-function endDrag() {
-  isDragging = false;
-  modalImg.style.cursor = scale > 1 ? "grab" : "default";
-}
-
-// Event chuột trên PC
-modalImg.addEventListener("mousedown", (e) => {
-  e.preventDefault();
-  startDrag(e.clientX, e.clientY);
-});
-document.addEventListener("mousemove", (e) => {
-  drag(e.clientX, e.clientY);
-});
-document.addEventListener("mouseup", () => {
-  endDrag();
-});
-
-
-// 4. CHẠM ZOOM BẰNG 2 NGÓN TAY & VUỐT CHẠM (Di động)
-modalImg.addEventListener("touchstart", (e) => {
-  if (e.touches.length === 1) {
-    // Kéo bằng 1 ngón tay khi đã zoom
-    startDrag(e.touches[0].clientX, e.touches[0].clientY);
-  } else if (e.touches.length === 2) {
-    // Thu phóng bằng 2 ngón tay (Pinch)
-    isDragging = false; // Ngắt kéo khi zoom 2 ngón
-    startTouchDistance = Math.hypot(
-      e.touches[0].clientX - e.touches[1].clientX,
-      e.touches[0].clientY - e.touches[1].clientY
-    );
-    startTouchScale = scale;
-  }
-}, { passive: true });
-
-modalImg.addEventListener("touchmove", (e) => {
-  if (e.touches.length === 1 && isDragging) {
-    drag(e.touches[0].clientX, e.touches[0].clientY);
-  } else if (e.touches.length === 2 && startTouchDistance > 0) {
-    const currentDistance = Math.hypot(
-      e.touches[0].clientX - e.touches[1].clientX,
-      e.touches[0].clientY - e.touches[1].clientY
-    );
-    const zoomFactor = currentDistance / startTouchDistance;
-    scale = Math.min(Math.max(1, startTouchScale * zoomFactor), 5);
     updateTransform();
   }
-}, { passive: false });
 
-modalImg.addEventListener("touchend", (e) => {
-  endDrag();
-  if (e.touches.length < 2) {
-    startTouchDistance = 0;
+  // Hàm mở Modal dùng chung: nhận vào thẻ ảnh hoặc đường link ảnh
+  function openZoomModal(imgSrc) {
+    if (!imgSrc) return;
+    modalImg.src = imgSrc;
+    resetZoom();
+    modal.classList.add("show");
   }
-});
 
+  // Hàm đóng Modal
+  function closeZoomModal() {
+    modal.classList.remove("show");
+    resetZoom();
+  }
 
-// 5. CLICK ĐÚP CHUỘT/TAP ĐÚP ĐỂ RESET TRẠNG THÁI
-let lastTap = 0;
-modalImg.addEventListener("click", (e) => {
-  const currentTime = new Date().getTime();
-  const tapLength = currentTime - lastTap;
-  if (tapLength < 300 && tapLength > 0) {
-    // Nếu zoom rồi thì reset, chưa zoom thì phóng lên 2.5x
-    if (scale > 1) {
-      resetZoom();
+  // 1. GẮN SỰ KIỆN CLICK MỞ MODAL CHO TẤT CẢ ẢNH CẦN PHÓNG TO
+  // Bao gồm: #canteenMapImg, #map-khu1, #map-khu2, #map-khu3, #map-hoaan
+  const targetImageIds = ["canteenMapImg", "map-khu1", "map-khu2", "map-khu3", "map-hoaan"];
+  
+  targetImageIds.forEach((id) => {
+    const imgEl = document.getElementById(id);
+    if (imgEl) {
+      imgEl.style.cursor = "zoom-in";
+      imgEl.addEventListener("click", (e) => {
+        e.stopPropagation();
+        openZoomModal(imgEl.src);
+      });
+    }
+  });
+
+  // Hỗ trợ cả 2 nút bấm "Phóng to" (nút ở sơ đồ căn tin và nút ở sơ đồ trường)
+  const openCanteenBtn = document.getElementById("openCanteenModalBtn");
+  if (openCanteenBtn) {
+    openCanteenBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const canteenImg = document.getElementById("canteenMapImg");
+      if (canteenImg) openZoomModal(canteenImg.src);
+    });
+  }
+
+  const openModalBtn = document.getElementById("openModalBtn");
+  if (openModalBtn) {
+    openModalBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      // Lấy ảnh đang hiển thị (.active-map) trong trang Sơ đồ
+      const activeMap = document.querySelector(".notebook-page .campus-map-img.active-map") ||
+                        document.querySelector(".campus-map-img.active-map");
+      if (activeMap) openZoomModal(activeMap.src);
+    });
+  }
+
+  // 2. ĐÓNG MODAL KHI BẤM NÚT X
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeZoomModal();
+    });
+  }
+
+  // 3. ĐÓNG MODAL KHI BẤM VÀO KHOẢNG TRỐNG BÊN NGOÀI
+  modal.addEventListener("click", (e) => {
+    // Chỉ đóng khi người dùng click trực tiếp vào vùng nền đen (không click vào ảnh)
+    // và không phải đang thực hiện thao tác kéo rê chuột
+    if (e.target === modal && !hasDragged) {
+      closeZoomModal();
+    }
+  });
+
+  // Đóng khi bấm phím ESC trên bàn phím
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("show")) {
+      closeZoomModal();
+    }
+  });
+
+  // 4. ZOOM BẰNG CUỘN CHUỘT TRÊN MÁY TÍNH
+  modal.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    const zoomFactor = 0.18;
+    if (e.deltaY < 0) {
+      scale += zoomFactor;
     } else {
-      scale = 2.5;
+      scale -= zoomFactor;
+    }
+    scale = Math.min(Math.max(1, scale), 5); // Giới hạn từ 1x đến 5x
+    if (scale === 1) {
+      transformX = 0;
+      transformY = 0;
+    }
+    updateTransform();
+  }, { passive: false });
+
+  // 5. KÉO DI CHUYỂN KHI ĐANG PHÓNG TO TRÊN PC
+  modalImg.addEventListener("dragstart", (e) => e.preventDefault());
+  modalImg.addEventListener("mousedown", (e) => {
+    if (scale > 1) {
+      isDragging = true;
+      hasDragged = false;
+      startX = e.clientX - transformX;
+      startY = e.clientY - transformY;
+      modalImg.style.cursor = "grabbing";
+    }
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    const currentX = e.clientX - startX;
+    const currentY = e.clientY - startY;
+    if (Math.hypot(currentX - transformX, currentY - transformY) > 5) {
+      hasDragged = true;
+    }
+    transformX = currentX;
+    transformY = currentY;
+    updateTransform();
+  });
+
+  document.addEventListener("mouseup", () => {
+    if (isDragging) {
+      isDragging = false;
+      modalImg.style.cursor = scale > 1 ? "grab" : "zoom-in";
+      // Giữ hasDragged một khoảng thời gian ngắn để chặn sự kiện click nhầm
+      setTimeout(() => { hasDragged = false; }, 80);
+    }
+  });
+
+  // 6. ZOOM & VUỐT CHẠM CẢM ỨNG TRÊN ĐIỆN THOẠI
+  modalImg.addEventListener("touchstart", (e) => {
+    if (e.touches.length === 1 && scale > 1) {
+      isDragging = true;
+      hasDragged = false;
+      startX = e.touches[0].clientX - transformX;
+      startY = e.touches[0].clientY - transformY;
+    } else if (e.touches.length === 2) {
+      isDragging = false;
+      startTouchDistance = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      startTouchScale = scale;
+    }
+  }, { passive: true });
+
+  modalImg.addEventListener("touchmove", (e) => {
+    if (e.touches.length === 1 && isDragging) {
+      hasDragged = true;
+      transformX = e.touches[0].clientX - startX;
+      transformY = e.touches[0].clientY - startY;
+      updateTransform();
+    } else if (e.touches.length === 2 && startTouchDistance > 0) {
+      const currentDistance = Math.hypot(
+        e.touches[0].clientX - e.touches[1].clientX,
+        e.touches[0].clientY - e.touches[1].clientY
+      );
+      const zoomRatio = currentDistance / startTouchDistance;
+      scale = Math.min(Math.max(1, startTouchScale * zoomRatio), 5);
       updateTransform();
     }
-  }
-  lastTap = currentTime;
+  }, { passive: false });
+
+  modalImg.addEventListener("touchend", (e) => {
+    isDragging = false;
+    if (e.touches.length < 2) {
+      startTouchDistance = 0;
+    }
+  });
+
+  // 7. CLICK ĐÚP ĐỂ ZOOM NHANH 2.5X HOẶC TRỞ VỀ 1X
+  modalImg.addEventListener("click", (e) => {
+    e.stopPropagation(); // Không cho nổi bọt ra vùng ngoài
+    if (hasDragged) return;
+    const currentTime = new Date().getTime();
+    const tapLength = currentTime - lastTap;
+    if (tapLength < 300 && tapLength > 0) {
+      if (scale > 1) {
+        resetZoom();
+      } else {
+        scale = 2.5;
+        updateTransform();
+      }
+    }
+    lastTap = currentTime;
+  });
 });
 
-// Quản lý trạng thái lưu trữ của Checklist
+// ==========================================================
+// KHẮC PHỤC CHUYỂN TAB CĂN TIN TRƯỜNG & GIỜ MỞ CỬA
+// ==========================================================
 document.addEventListener("DOMContentLoaded", () => {
-  const checkboxes = document.querySelectorAll(".task-check");
+  const canteenBtns = document.querySelectorAll(".canteen-tab-btn");
+  const canteenPanes = document.querySelectorAll(".canteen-tab-pane");
 
-  // 1. Tải trạng thái đã lưu từ LocalStorage lên giao diện
-  checkboxes.forEach((box) => {
-    const id = box.dataset.id;
-    const isSaved = localStorage.getItem(`checklist_${id}`) === "true";
-    box.checked = isSaved;
-  });
+  canteenBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
 
-  updateFolderProgress();
+      // 1. Cập nhật nút đang chọn (bôi xanh)
+      canteenBtns.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
 
-  // 2. Lưu lại mỗi khi người dùng tích/bỏ tích
-  checkboxes.forEach((box) => {
-    box.addEventListener("change", (e) => {
-      const id = e.target.dataset.id;
-      localStorage.setItem(`checklist_${id}`, e.target.checked);
-      updateFolderProgress();
-    });
-  });
+      // 2. Ẩn tất cả các khung nội dung tab
+      canteenPanes.forEach((pane) => {
+        pane.style.display = "none";
+        pane.classList.remove("active");
+      });
 
-  // 3. Hàm tính toán và cập nhật số lượng đã xong trên từng thư mục
-  function updateFolderProgress() {
-    const folders = document.querySelectorAll(".folder-group");
-
-    folders.forEach((folder) => {
-      const total = folder.querySelectorAll(".task-check").length;
-      const completed = folder.querySelectorAll(".task-check:checked").length;
-      const badge = folder.querySelector(".badge-count");
-
-      if (badge) {
-        badge.innerText = `${completed}/${total}`;
-        if (completed === total && total > 0) {
-          badge.style.background = "#dcfce7";
-          badge.style.color = "#15803d"; // Đổi màu xanh lá khi xong hết
-        } else {
-          badge.style.background = "#e2e8f0";
-          badge.style.color = "#475569";
-        }
+      // 3. Hiển thị khung tương ứng theo data-canteen-tab ("map" hoặc "schedule")
+      const tabTarget = btn.getAttribute("data-canteen-tab");
+      const targetPane = document.getElementById(`canteen-pane-${tabTarget}`);
+      if (targetPane) {
+        targetPane.style.display = "block";
+        targetPane.classList.add("active");
       }
     });
-  }
+  });
 });
+
