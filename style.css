@@ -1625,3 +1625,94 @@ body {
     max-height: 80vh;
   }
 }
+
+/* ==========================================================
+   CỨU VỚ LAYOUT SỔ TAY TRÊN ĐIỆN THOẠI (FIX LỖI ÉP CỘT DỌC)
+   ========================================================== */
+@media (max-width: 820px) {
+  /* 1. Header luôn phủ kín 100% chiều ngang màn hình */
+  .site-header {
+    width: 100% !important;
+  }
+  .container {
+    width: 100% !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    margin: 0 auto !important;
+  }
+  .nav-wrap {
+    width: 100% !important;
+    justify-content: space-between !important;
+  }
+
+  /* 2. CHUYỂN BỐ CỤC TỪ 2 CỘT SANG 1 CỘT XẾP CHỒNG LÊN NHAU */
+  .notebook-layout {
+    display: flex !important;
+    flex-direction: column !important; /* Xếp sidebar lên trên, ruột sổ xuống dưới */
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  /* 3. Thanh sidebar mục lục chuyển thành dải vuốt ngang */
+  .notebook-sidebar {
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 10px !important;
+  }
+  .notebook-sidebar-label,
+  .notebook-note {
+    display: none !important; /* Ẩn bớt chữ MỤC LỤC và ghi chú nhỏ để tiết kiệm chỗ */
+  }
+  .notebook-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    gap: 8px !important;
+    padding-bottom: 4px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+  }
+  .notebook-nav::-webkit-scrollbar {
+    display: none !important;
+  }
+  .notebook-tab {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    padding: 8px 14px !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* 4. Ruột quyển sổ mở rộng hết cỡ chiều ngang điện thoại */
+  .notebook-book {
+    width: 100% !important;
+    padding: 6px 6px 10px 18px !important; /* Giữ gáy xoắn nhưng giảm lề thừa */
+  }
+  .notebook-book::before {
+    width: 12px !important; /* Thu nhỏ lỗ lò xo */
+  }
+  .notebook-paper {
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 18px 12px !important; /* Xóa lề rộng để chữ dàn đều */
+  }
+
+  /* 5. Căn chỉnh chữ và tiêu đề không bị rớt dòng cục bộ */
+  .notebook-page h2 {
+    font-size: 1.35rem !important;
+    margin-right: 0 !important;
+    line-height: 1.35 !important;
+  }
+  .notebook-intro {
+    font-size: 0.88rem !important;
+    margin-bottom: 14px !important;
+  }
+  .notebook-page-count {
+    top: 10px !important;
+    right: 12px !important;
+    font-size: 0.7rem !important;
+  }
+  .dropdown-content {
+    padding: 10px 8px 14px 8px !important; /* Không thụt lề 52px nữa */
+  }
+}
