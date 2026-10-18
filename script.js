@@ -259,31 +259,55 @@ document.addEventListener("DOMContentLoaded", () => {
   const roomInput = document.getElementById("roomInput");
   const lookupBtn = document.getElementById("lookupBtn");
 
-  // 1. CHUYỂN ĐỔI BẢN ĐỒ GIỮA CÁC KHU
+  // 1. CHUYỂN ĐỔI BẢN ĐỒ VÀ THÔNG TIN GIỮA CÁC KHU
+  const campusPanes = document.querySelectorAll(".campus-pane");
+
   campusBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
-      // Đổi class nút bấm
+      // A. Đổi trạng thái active cho nút bấm
       campusBtns.forEach((b) => b.classList.remove("active"));
       btn.classList.add("active");
+      currentCampus = btn.dataset.campus; // 'khu1', 'khu2', 'khu3', 'hoaan'
 
-      currentCampus = btn.dataset.campus;
-
-      // Ẩn tất cả ảnh, chỉ bật đúng ảnh của khu được bấm
+      // B. Ẩn tất cả ảnh bản đồ, chỉ hiện đúng ảnh của khu được bấm
       allMapImgs.forEach((img) => img.classList.remove("active-map"));
       const selectedImg = document.getElementById(`map-${currentCampus}`);
       if (selectedImg) {
         selectedImg.classList.add("active-map");
       }
 
-      // Luôn ẩn điểm ghim đỏ khi đổi khu
+      // C. ẨN TẤT CẢ KHUNG THÔNG TIN VÀ HIỂN THỊ ĐÚNG KHU VỰC ĐƯỢC CHỌN (ĐOẠN CẦN BỔ SUNG)
+      if (campusPanes.length > 0) {
+        campusPanes.forEach((pane) => {
+          pane.style.display = "none";
+        });
+        const activePane = document.getElementById(`campus-${currentCampus}`);
+        if (activePane) {
+          activePane.style.display = "block";
+        }
+      }
+
+      // D. Cập nhật dòng chú thích dưới bản đồ tương ứng
+      const zoneCaption = document.getElementById("zoneCaption");
+      if (zoneCaption) {
+        const campusNames = {
+          khu1: "Khu 1 (Số 411 đường 30/4)",
+          khu2: "Khu 2 (Khuôn viên chính)",
+          khu3: "Khu 3 (Số 1 Lý Tự Trọng)",
+          hoaan: "Khu Hòa An (Phụng Hiệp, Hậu Giang)"
+        };
+        zoneCaption.innerHTML = `📍 <strong>Bản đồ tổng thể ${campusNames[currentCampus] || ""}:</strong> Xem các dãy giảng đường và cổng ra vào.`;
+      }
+
+      // E. Luôn ẩn điểm ghim đỏ khi đổi khu
       if (mapMarker) mapMarker.classList.add("hidden");
 
-      // Cập nhật thông báo trạng thái
+      // F. Cập nhật thông báo trạng thái tra cứu
       if (lookupResult) {
         if (currentCampus === "khu2") {
           lookupResult.innerHTML = "Đang ở <strong>Khu 2</strong>. Bạn có thể tra cứu mã phòng học bên trên.";
         } else {
-          lookupResult.innerHTML = `Đang xem sơ đồ <strong>${btn.textContent.trim()}</strong>.`;
+          lookupResult.innerHTML = `Đang xem sơ đồ <strong>${btn.textContent.trim()}</strong>. Chức năng tìm phòng chỉ hỗ trợ tại Khu 2.`;
         }
       }
     });
