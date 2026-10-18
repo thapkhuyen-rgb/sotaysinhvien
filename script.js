@@ -611,3 +611,56 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// ==========================================================
+// BỘ ĐẾM VÀ LƯU TRỮ CHECKLIST (DÁN VÀO CUỐI FILE script.js)
+// ==========================================================
+function updateFolderProgress() {
+  const folders = document.querySelectorAll(".folder-group");
+  folders.forEach((folder) => {
+    const checkboxes = folder.querySelectorAll(".task-check");
+    const total = checkboxes.length;
+    if (total === 0) return;
+
+    let completed = 0;
+    checkboxes.forEach((box) => {
+      if (box.checked) completed++;
+    });
+
+    const badge = folder.querySelector(".badge-count");
+    if (badge) {
+      badge.textContent = `${completed}/${total}`;
+      if (completed === total) {
+        badge.style.background = "#dcfce7";
+        badge.style.color = "#15803d";
+      } else {
+        badge.style.background = "#e2e8f0";
+        badge.style.color = "#475569";
+      }
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Phục hồi các ô đã tích từ trước
+  const allCheckboxes = document.querySelectorAll(".task-check");
+  allCheckboxes.forEach((box) => {
+    const id = box.dataset.id;
+    if (id) {
+      box.checked = localStorage.getItem(`checklist_${id}`) === "true";
+    }
+  });
+
+  // Cập nhật số đếm ngay khi tải trang
+  updateFolderProgress();
+
+  // 2. Bắt sự kiện khi người dùng tích chọn
+  document.addEventListener("change", (e) => {
+    if (e.target && e.target.classList.contains("task-check")) {
+      const id = e.target.dataset.id;
+      if (id) {
+        localStorage.setItem(`checklist_${id}`, e.target.checked);
+      }
+      updateFolderProgress();
+    }
+  });
+});
